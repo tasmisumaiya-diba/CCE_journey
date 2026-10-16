@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.crms39.crms39.controller.ManageRoutineController">
+
+    <top>
+        <VBox alignment="CENTER" spacing="8.0">
+            <padding>
+                <Insets top="10.0" right="20.0"
+                        bottom="15.0" left="20.0"/>
+            </padding>
+
+            <Label text="Manage Class Routine"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <Label text="Teacher and CR access only"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="routineTable">
+            <columns>
+                <TableColumn fx:id="dayColumn"
+                             text="Day"
+                             prefWidth="100.0"/>
+
+                <TableColumn fx:id="startTimeColumn"
+                             text="Start"
+                             prefWidth="75.0"/>
+
+                <TableColumn fx:id="endTimeColumn"
+                             text="End"
+                             prefWidth="75.0"/>
+
+                <TableColumn fx:id="subjectColumn"
+                             text="Subject"
+                             prefWidth="200.0"/>
+
+                <TableColumn fx:id="teacherColumn"
+                             text="Teacher"
+                             prefWidth="100.0"/>
+
+                <TableColumn fx:id="roomColumn"
+                             text="Room"
+                             prefWidth="90.0"/>
+            </columns>
+
+            <BorderPane.margin>
+                <Insets top="5.0" right="10.0"
+                        bottom="10.0" left="20.0"/>
+            </BorderPane.margin>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox spacing="8.0" prefWidth="250.0">
+            <padding>
+                <Insets top="5.0" right="20.0"
+                        bottom="20.0" left="10.0"/>
+            </padding>
+
+            <Label text="Session Details"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <Label text="Day"/>
+            <TextField fx:id="dayField"
+                       promptText="Example: Sunday"/>
+
+            <Label text="Start time"/>
+            <TextField fx:id="startTimeField"
+                       promptText="Example: 09:00"/>
+
+            <Label text="End time"/>
+            <TextField fx:id="endTimeField"
+                       promptText="Example: 09:55"/>
+
+            <Label text="Subject"/>
+            <TextField fx:id="subjectField"
+                       promptText="Example: CCE-122"/>
+
+            <Label text="Teacher"/>
+            <TextField fx:id="teacherField"
+                       promptText="Example: MSZ/SM"/>
+
+            <Label text="Room"/>
+            <TextField fx:id="roomField"
+                       promptText="Example: CR-302"/>
+
+            <Button text="Add Session"
+                    onAction="#handleAddSession"
+                    maxWidth="Infinity"/>
+
+            <Button text="Edit Selected"
+                    onAction="#handleEditSelected"
+                    maxWidth="Infinity"/>
+
+            <Button text="Update Selected"
+                    onAction="#handleUpdateSession"
+                    maxWidth="Infinity"/>
+
+            <Button text="Delete Selected"
+                    onAction="#handleDeleteSelected"
+                    maxWidth="Infinity"
+                    style="-fx-text-fill: #b00020;"/>
+
+            <Label fx:id="statusLabel"
+                   wrapText="true"/>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets top="5.0" right="20.0"
+                        bottom="10.0" left="20.0"/>
+            </padding>
+
+            <Button fx:id="backButton"
+                    text="Back to Dashboard"
+                    onAction="#handleBackToDashboard"
+                    maxWidth="200.0"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
